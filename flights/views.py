@@ -19,4 +19,5 @@ def flight(request, flight_id):
 def flight(request, flight_id):
     flight = get_object_or_404(Flight, id=flight_id)
     return render(request, "flights/flight.html",
-                  { 'flight': flight})
+                  { 'flight': flight,
+                   'passengers': flight.passengers.all()})
